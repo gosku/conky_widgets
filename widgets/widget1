@@ -1,0 +1,71 @@
+update_interval 3
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+
+
+use_xft yes
+xftfont Ubuntu:size=12
+override_utf8_locale yes
+text_buffer_size 500
+
+
+own_window_type normal
+own_window_class Conky
+own_window yes
+own_window_transparent no
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+own_window_argb_visual yes
+own_window_argb_value 150
+
+alignment top_right
+gap_x 734
+gap_y 150
+minimum_size 800
+maximum_width 500
+border_inner_margin 60
+
+
+default_bar_size 300 8
+
+
+
+draw_shades no
+
+default_color cccccc
+
+color0 white
+color1 E07A1F
+color2 white
+
+TEXT
+${goto 60}CPU Freq ${hr 2}
+${goto 60}${voffset 30}${font conkycolors:size=16}E${font}${voffset -9}${goto 100} Frequency: ${alignr}${freq_g (1)} GHz
+
+${goto 60}CPU Usage ${hr 2}
+${goto 60}${voffset 30}${font conkycolors:size=16}c${font}${voffset -12}${goto 100}  CPU1:   ${cpu cpu1}%${alignr 5}${font conkycolors:size=16}c${font}${voffset -9}${alignr 8}CPU2:   ${cpu cpu2}%
+${goto 60}${voffset 10}${font conkycolors:size=16}c${font}${voffset -12}${goto 100}  CPU3:   ${cpu cpu3}%${alignr 5}${font conkycolors:size=16}c${font}${voffset -9}${alignr 8}CPU4:   ${cpu cpu4}%
+${goto 60}${voffset 10}${font conkycolors:size=16}c${font}${voffset -12}${goto 100}  CPU5:   ${cpu cpu5}%${alignr 5}${font conkycolors:size=16}c${font}${voffset -9}${alignr 8}CPU6:   ${cpu cpu6}%
+${goto 60}${voffset 10}${font conkycolors:size=16}c${font}${voffset -12}${goto 100}  CPU7:   ${cpu cpu7}%${alignr 5}${font conkycolors:size=16}c${font}${voffset -9}${alignr 8}CPU8:   ${cpu cpu8}%
+
+${goto 60}CPU Temperatures ${hr 2}
+${goto 60}${voffset 30}${font conkycolors:size=16}c${font}${voffset -10}${goto 100}  Core0:${alignr}${color #FCAF3E}${execi 30 sensors | grep 'Core 0' | awk '{print $3}' | sed 's/+//' | sed 's/\.0//g'} $color
+${goto 60}${voffset 10}${font conkycolors:size=16}c${font}${voffset -10}${goto 100}  Core1:${alignr}${color #FCAF3E}${execi 30 sensors | grep 'Core 1' | awk '{print $3}' | sed 's/+//' | sed 's/\.0//g'} $color
+${goto 60}${voffset 10}${font conkycolors:size=16}c${font}${voffset -10}${goto 100}  Core2:${alignr}${color #FCAF3E}${execi 30 sensors | grep 'Core 2' | awk '{print $3}' | sed 's/+//' | sed 's/\.0//g'} $color
+${goto 60}${voffset 10}${font conkycolors:size=16}c${font}${voffset -10}${goto 100}  Core3:${alignr}${color #FCAF3E}${execi 30 sensors | grep 'Core 3' | awk '{print $3}' | sed 's/+//' | sed 's/\.0//g'} $color
+
+${goto 60}Misc Info ${hr 2}
+${goto 60}${voffset 30}${font conkycolors:size=16}d${font}${voffset -10}${goto 100}  GPU Temp: ${alignr}${color #FCAF3E}${exec nvidia-settings -q GPUCoreTemp | grep Attribute | cut -d ' ' -f 6 | cut -c 1-2| sed -n '1!p'}°C$color
+${goto 60}${voffset 45}${font conkycolors:size=16}g${font}${voffset -10}${goto 100}  Ram: ${mem} ${voffset -25}${alignr}${membar 60,220}
+${goto 60}${voffset 15}${font conkycolors:size=16}i${font}${voffset -10}${goto 100}  Disk: ${diskio}${voffset -25}${alignr}${diskiograph 60,220 F57900 FCAF3E}
+${goto 60}${voffset 15}${font conkycolors:size=16}i${font}${voffset -10}${goto 100}  Swap: $swapperc% ${voffset -25}${alignr}${swapbar 60,220}
+${goto 60}${voffset 15}${font conkycolors:size=16}o${font}${voffset -10}${goto 100}  Uptime: ${alignr}${uptime}
+${goto 60}${voffset 30}${font conkycolors:size=16}C${font}${voffset -10}${goto 100}  Processes: ${alignr}$processes ($running_processes running)
+
+ ${voffset 106}

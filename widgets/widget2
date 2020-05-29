@@ -1,0 +1,77 @@
+update_interval 3
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+
+
+use_xft yes
+xftfont Ubuntu:size=12
+override_utf8_locale yes
+text_buffer_size 500
+
+
+own_window_type normal
+own_window_class Conky
+own_window yes
+own_window_transparent no
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+own_window_argb_visual yes
+own_window_argb_value 150
+
+alignment top_right
+gap_x 110
+gap_y 150
+minimum_size 5000
+maximum_width 500
+border_inner_margin 60
+
+default_bar_size 300 8
+
+
+
+draw_shades no
+
+default_color cccccc
+
+color0 white
+color1 E07A1F
+color2 white
+
+
+
+TEXT
+${goto 30}HDD ${hr 2}
+${goto 30}${voffset 15}${font conkycolors:size=16}${voffset 15}i${font} ${voffset -10}/${alignr}${color #FCAF3E}${exec hddtemp /dev/sdc1 -n --unit=C} °C$color
+${goto 30}${voffset 10}${fs_used /}/${fs_size /} (${color #FCAF3E}${fs_used_perc /}%$color) ${alignr}${fs_bar 35,140 /}
+${goto 30}${voffset 15}${font conkycolors:size=16}${voffset 15}i${font} ${voffset -10}/home${alignr}${color #FCAF3E}${exec hddtemp /dev/sdc2 -n --unit=C} °C$color
+${goto 30}${voffset 10}${fs_used /home}/${fs_size /home} (${color #FCAF3E}${fs_used_perc /home}%$color) ${alignr}${fs_bar 35,140 /home}
+${goto 30}${voffset 15}${font conkycolors:size=16}${voffset 15}i${font} ${voffset -10}/home/gosku/media${alignr}${color #FCAF3E}${exec hddtemp /dev/sda1 -n --unit=C} °C$color
+${goto 30}${voffset 10}${fs_used /home/gosku/media}/${fs_size /home/gosku/media} (${color #FCAF3E}${fs_used_perc /home/gosku/media}%$color) ${alignr}${fs_bar 35,140 /home/gosku/media}
+${goto 30}${voffset 15}${font conkycolors:size=16}${voffset 15}i${font} ${voffset -10}/backups${alignr}${color #FCAF3E}${exec hddtemp /dev/sdb1 -n --unit=C} °C$color
+${goto 30}${voffset 10}${fs_used /backups}/${fs_size /backups} (${color #FCAF3E}${fs_used_perc /backups}%$color) ${alignr}${fs_bar 35,140 /backups}
+
+${goto 30}Network ${hr 2}
+${if_up eno1}${goto 30}${voffset 15}${font conkycolors:size=14}x${font}${goto 60}${voffset -6}  Up: ${upspeed eno1}${alignr 5}${voffset -2}${font conkycolors:size=14}u${font}${alignr 0}${voffset -6}Down: ${downspeed eno1}
+${goto 30}${voffset 15} ${font Poky:size=13}w${font}${goto 60}${voffset 0}  External IP: ${alignr}${exec dig +short myip.opendns.com @resolver1.opendns.com}
+${goto 30}${voffset 15} ${font conkycolors:size=13}A${font}${goto 60}${voffset -5}  Internal IP: ${alignr}${addr eno1}
+${endif}
+${goto 30}${voffset 0}Highest: ${alignr 45}CPU${alignr}RAM
+${goto 30}${voffset -15}${hr 1}
+${goto 30}${voffset 5}${top name 1} ${alignr 38}${top cpu 1}${alignr }${top mem 1}
+${goto 30}${voffset 5}${top name 2} ${alignr 38}${top cpu 2}${alignr }${top mem 2}
+${goto 30}${voffset 5}${top name 3} ${alignr 38}${top cpu 3}${alignr }${top mem 3}
+${goto 30}${voffset 5}${top name 4} ${alignr 38}${top cpu 4}${alignr }${top mem 4}
+${goto 30}${voffset 5}${top name 5} ${alignr 38}${top cpu 5}${alignr }${top mem 5}
+${goto 30}${voffset 5}${top name 6} ${alignr 38}${top cpu 6}${alignr }${top mem 6}
+${goto 30}${voffset 5}${top name 7} ${alignr 38}${top cpu 7}${alignr }${top mem 7}
+${goto 30}${voffset 5}${top name 8} ${alignr 38}${top cpu 8}${alignr }${top mem 8}
+${goto 30}${voffset 5}${top name 9} ${alignr 38}${top cpu 9}${alignr }${top mem 9}
+${goto 30}${voffset 5}${top name 10} ${alignr 38}${top cpu 10}${alignr }${top mem 10}
+${voffset 0}
+
